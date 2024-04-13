@@ -8,6 +8,7 @@ function Home() {
     const token = localStorage.getItem('token');
     
     useEffect(() => {
+        if (!token) return;
         const headers = {
             'Authorization': 'bearer ' + token
           };
@@ -15,7 +16,7 @@ function Home() {
             setRoles(data.data.roles);
           })
           .catch(error => {
-            console.error('Erreur lors de la récupération du role d\'utilisateur', error);
+            console.error('Erreur lors de la récupération du role d\'utilisateur');
           });
       }, [token]);
 

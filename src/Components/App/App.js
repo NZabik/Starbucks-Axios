@@ -27,7 +27,6 @@ function App() {
     axios.get('http://localhost:8000/api/decode', { headers }).then(data => {
         setUsername(data.data.username);
         setRoles(data.data.roles);
-        console.log(data.data.roles);
       })
       .catch(error => {
         console.error('Erreur lors de la récupération du nom d\'utilisateur', error);
