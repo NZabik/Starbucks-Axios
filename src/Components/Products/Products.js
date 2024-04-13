@@ -6,6 +6,7 @@ import './Products.css';
 function Products() {
     const [post, setPost] = useState([]);
     const [page, setPage] = useState(1);
+    const [isLastPage, setIsLastPage] = useState(false); // Ajouter un état pour suivre si vous êtes à la dernière page
     const token = localStorage.getItem('token');
     const navigate = useNavigate(); // Utiliser useNavigate
 
@@ -17,8 +18,8 @@ function Products() {
                 'Authorization': 'Bearer '+ token
             };
             axios.get(`http://localhost:8000/api/products?page=${page}`, { headers }).then((data) => {
-                console.log(data);
                 setPost(data.data);
+                setIsLastPage(data.data.length < 10); // Si le nombre de produits est inférieur à 10, vous êtes à la dernière page
             });
         }
     }, [navigate, token, page]);
@@ -41,15 +42,15 @@ function Products() {
             <h1>Products</h1>
             {post.map((data) => {
                 return (
-                    <ul className="products" key={data.id}>
-                        <li>{"id: " + data.id}</li>
-                        <li>{"Nom: " + data.name}</li>
-                        <li>{"Prix: " + data.price + " €"}</li>
-                    </ul>
+                    <div className="products" key={data.id}>
+                        <div>{"id: " + data.id}</div>
+                        <div>{"Nom: " + data.name}</div>
+                        <div>{"Prix: " + data.price + " €"}</div>
+                    </div>
                 );
             })}
-            <button onClick={prevPage}>Page précédente</button>
-            <button onClick={nextPage}>Page suivante</button>
+            <button onClick={prevPage} className="buttonNav">Page précédente</button>
+            <button onClick={nextPage} className="buttonNav" disabled={isLastPage}>Page suivante</button>
         </div>
     );
 }

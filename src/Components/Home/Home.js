@@ -27,7 +27,7 @@ function Home() {
             <h1>Bienvenue sur Starbucks</h1>
             <div>
                 <Link to="/login">
-                    <button className="button">Se connecter</button>
+                    <button className="button">Connexion/déconnexion</button>
                 </Link>
             </div>
             <div>

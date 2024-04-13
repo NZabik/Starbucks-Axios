@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 function AddProduct() {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
+  const [successMessage, setSuccessMessage] = useState(''); // Ajouter un état pour le message de succès
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const token = localStorage.getItem('token');
     const headers = {
-      'Authorization': 'Bearer ' + token
+      'Authorization': 'bearer ' + token
     };
     axios({
       method: 'post',
@@ -23,7 +24,7 @@ function AddProduct() {
       }
     })
       .then(response => {
-        console.log(response);
+        setSuccessMessage('Produit ajouté avec succès !'); // Mettre à jour le message de succès
       })
       .catch(error => {
         console.log(error);
@@ -36,6 +37,7 @@ function AddProduct() {
                 <button className="buttonHome">Retour à la page d'accueil</button>
             </Link>
             <h1>Ajouter un produit</h1>
+            {successMessage && <p>{successMessage}</p>} {/* Afficher le message de succès s'il existe */}
       <form onSubmit={handleSubmit}>
         <div className="Form">
           <input type="text" placeholder="Nom du produit" onChange={e => setName(e.target.value)} />
