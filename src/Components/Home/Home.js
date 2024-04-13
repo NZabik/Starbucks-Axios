@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import axios from 'axios';
 
 function Home() {
+    const [roles, setRoles] = useState('');
+    const token = localStorage.getItem('token');
+    
+    useEffect(() => {
+        const headers = {
+            'Authorization': 'bearer ' + token
+          };
+        axios.get('http://localhost:8000/api/decode', { headers }).then(data => {
+            setRoles(data.data.roles);
+          })
+          .catch(error => {
+            console.error('Erreur lors de la récupération du role d\'utilisateur', error);
+          });
+      }, [token]);
+
+
+
     return (
         <div>
             <h1>Bienvenue sur Starbucks</h1>
@@ -12,14 +30,16 @@ function Home() {
                 </Link>
             </div>
             <div>
+            {roles.includes("ROLE_USER") && (
                 <Link to="/products">
                     <button className="button2">Voir les produits</button>
-                </Link>
+                </Link>)} {/* N'afficher le bouton Voir les produits que si le rôle contient 'ROLE_USER' */}
             </div>
             <div>
-                <Link to="/add-product">
+            {roles.includes("ROLE_ADMIN") && (
+        <Link to="/add-product">
                     <button className="button2">Ajouter un produit</button>
-                </Link>
+                </Link>)} {/* N'afficher le bouton Ajouter un produit que si le rôle contient 'ROLE_ADMIN' */}
             </div>
         </div>
     );

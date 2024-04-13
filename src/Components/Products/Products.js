@@ -21,7 +21,7 @@ function Products() {
                 setPost(data.data);
             });
         }
-    }, [page]);
+    }, [navigate, token, page]);
 
     const nextPage = () => {
         setPage(page + 1);
@@ -43,7 +43,7 @@ function Products() {
                 return (
                     <ul className="products" key={data.id}>
                         <li>{"id: " + data.id}</li>
-                        <li>{"Titre: " + data.name}</li>
+                        <li>{"Nom: " + data.name}</li>
                         <li>{"Prix: " + data.price + " €"}</li>
                     </ul>
                 );
