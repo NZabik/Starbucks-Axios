@@ -30,7 +30,7 @@ function UpdateProduct() {
       const headers = {
         'Authorization': 'bearer ' + token
       };
-      axios.get(`http://localhost:8000/api/products?page=${page}`, { headers })
+      axios.get(`http://localhost:8000/api/products?page=${page}&limit=6`, { headers })
         .then(data => {
           setPost(data.data);
           setIsLastPage(data.data.length < 6);

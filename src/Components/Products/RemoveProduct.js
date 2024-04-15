@@ -17,7 +17,7 @@ function RemoveProducts() {
             const headers = {
                 'Authorization': 'Bearer ' + token
             };
-            axios.get(`http://localhost:8000/api/products?page=${page}`, { headers }).then((data) => {
+            axios.get(`http://localhost:8000/api/products?page=${page}&limit=6`, { headers }).then((data) => {
                 setPost(data.data);
                 setIsLastPage(data.data.length < 6); // Si le nombre de produits est inférieur à 10, vous êtes à la dernière page
             });
@@ -62,6 +62,7 @@ function RemoveProducts() {
                         <div className="col-sm-4 products" key={data.id}>
                             <div className="card">
                                 <div className="card-body">
+                                <p className="card-text">{"Id: " + data.id }</p>
                                     <h5 className="card-title">{"Nom: " + data.name}</h5>
                                     <p className="card-text">{"Prix: " + data.price + " €"}</p>
                                     <button onClick={() => handleDelete(data.id)} className="btn button3">Supprimer</button>

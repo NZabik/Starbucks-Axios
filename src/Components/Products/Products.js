@@ -17,7 +17,7 @@ function Products() {
             const headers = {
                 'Authorization': 'Bearer '+ token
             };
-            axios.get(`http://localhost:8000/api/products?page=${page}`, { headers }).then((data) => {
+            axios.get(`http://localhost:8000/api/products?page=${page}&limit=6`, { headers }).then((data) => {
                 setPost(data.data);
                 setIsLastPage(data.data.length < 6); // Si le nombre de produits est inférieur à 10, vous êtes à la dernière page
             });
