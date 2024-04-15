@@ -19,8 +19,14 @@ function Header() {
           <img className='logo' src="/BSG.png" alt="logo" />
           <h1 className='title'>Starbucks</h1>
       </Link>
-        {isAuthenticated && <p>Bonjour {username}, vous êtes connecté.</p>}
-        {/* Ajoutez d'autres éléments à votre en-tête ici */}
+        
+        <div className='userName'>
+        {isAuthenticated && <div>Bonjour </div>}
+        {isAuthenticated && <div>{username}</div>}
+                <Link to="/login">
+                <button className="btn button">{isAuthenticated ? 'Déconnexion' : 'Connexion'}</button>
+                </Link>
+            </div>
       </nav>
     </header>
   );

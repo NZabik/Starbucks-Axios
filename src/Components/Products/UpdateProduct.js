@@ -103,13 +103,13 @@ function UpdateProduct() {
                   </label>
                 </div>
               </div>
-              <button type="submit" className="button2">Modifier</button>
+              <button type="submit" className="btn button2">Modifier</button>
             </form>
           </div>
         );
       })}
-      <button onClick={prevPage} className="buttonNav" disabled={page === 1}>Page précédente</button>
-      <button onClick={nextPage} className="buttonNav" disabled={isLastPage}>Page suivante</button>
+      <button onClick={prevPage} className="btn buttonNav" disabled={page === 1}>Page précédente</button>
+      <button onClick={nextPage} className="btn buttonNav" disabled={isLastPage}>Page suivante</button>
     </div>
   );
 }

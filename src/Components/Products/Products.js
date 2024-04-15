@@ -46,8 +46,8 @@ function Products() {
                     </div>
                 );
             })}
-            <button onClick={prevPage} className="buttonNav">Page précédente</button>
-            <button onClick={nextPage} className="buttonNav" disabled={isLastPage}>Page suivante</button>
+            <button onClick={prevPage} className="btn buttonNav">Page précédente</button>
+            <button onClick={nextPage} className="btn buttonNav" disabled={isLastPage}>Page suivante</button>
         </div>
     );
 }

@@ -1,19 +1,24 @@
-.buttonHome{
-    background-color: rgb(0, 62, 233);
-    color: rgb(255, 255, 255);
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 20px;
+body{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    font-family: Arial, sans-serif;
 }
 .button{
-    background-color: rgb(0, 233, 0);
+    background-color: rgb(255, 255, 255);
     color: black;
     padding: 10px 20px;
     margin: 10px;
     border-radius: 20px;
 }
 .button2{
-    background-color: rgb(0, 74, 233);
+    background-color: #A7000C;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 20px;
+}
+.button3{
+    background-color: rgb(233, 0, 0);
     color: white;
     padding: 10px 20px;
     margin: 10px;

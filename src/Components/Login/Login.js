@@ -9,7 +9,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(''); // Ajouter un état pour le message d'erreur
     const navigate = useNavigate(); // Utiliser useNavigate
-    const { setIsAuthenticated } = useContext(AuthContext);
+    const {isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
     const handleLogin = async () => {
         try {
             const response = await axios.post('http://localhost:8000/api/login_check', {
@@ -45,8 +45,8 @@ function Login() {
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Mot de passe" />
             </div>
             <div>
-            <button className="button3" onClick={handleLogout}>Se déconnecter</button>
-            <button className="button" onClick={handleLogin}>Se connecter</button>
+            {isAuthenticated && <button className="button3" onClick={handleLogout}>Se déconnecter</button>}
+            {!isAuthenticated && <button className="button" onClick={handleLogin}>Se connecter</button>}
             </div>
         </div>
     );

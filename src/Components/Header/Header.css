@@ -1,5 +1,5 @@
 header{
-background-color: black;
+background-color: #A7000C;
 color: white;
 }
 nav{
@@ -18,5 +18,11 @@ nav{
     color: white;
 }
 .logo{
-    max-height: 100px;
+    max-height: 150px;
+}
+.userName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
 }

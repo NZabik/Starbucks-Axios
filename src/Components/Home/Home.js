@@ -23,38 +23,34 @@ function Home() {
 
 
     return (
-        <div>
+        <body>
             <h1>Bienvenue sur Starbucks</h1>
-            <div>
-                <Link to="/login">
-                    <button className="button">Connexion/déconnexion</button>
-                </Link>
-            </div>
+            
             <div>
             {roles.includes("ROLE_USER") && (
                 <Link to="/products">
-                    <button className="button2">Voir les produits</button>
+                    <button className="btn button2">Voir les produits</button>
                 </Link>)} {/* N'afficher le bouton Voir les produits que si le rôle contient 'ROLE_USER' */}
             </div>
             <div>
             {roles.includes("ROLE_ADMIN") && (
         <Link to="/add-product">
-                    <button className="button2">Ajouter un produit</button>
+                    <button className="btn button2">Ajouter un produit</button>
                 </Link>)} {/* N'afficher le bouton Ajouter un produit que si le rôle contient 'ROLE_ADMIN' */}
             </div>
             <div>
             {roles.includes("ROLE_ADMIN") && (
         <Link to="/update-product">
-                    <button className="button2">Modifier un produit</button>
+                    <button className="btn button2">Modifier un produit</button>
                 </Link>)} {/* N'afficher le bouton Ajouter un produit que si le rôle contient 'ROLE_ADMIN' */}
             </div>
             <div>
             {roles.includes("ROLE_ADMIN") && (
         <Link to="/remove-product">
-                    <button className="button3">Supprimer un produit</button>
+                    <button className="btn button3">Supprimer un produit</button>
                 </Link>)} {/* N'afficher le bouton Ajouter un produit que si le rôle contient 'ROLE_ADMIN' */}
             </div>
-        </div>
+        </body>
     );
 }
 

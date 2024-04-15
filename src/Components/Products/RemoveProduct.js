@@ -64,12 +64,12 @@ function RemoveProducts() {
                         <div>{"Nom: " + data.name}</div>
                         <div>{"Prix: " + data.price + " €"}</div>
                         </div>
-                        <button onClick={() => handleDelete(data.id)} className="button3">Supprimer</button> {/* Ajouter un bouton de suppression pour chaque produit */}
+                        <button onClick={() => handleDelete(data.id)} className="btn button3">Supprimer</button> {/* Ajouter un bouton de suppression pour chaque produit */}
                     </div>
                 );
             })}
-            <button onClick={prevPage} className="buttonNav">Page précédente</button>
-            <button onClick={nextPage} className="buttonNav" disabled={isLastPage}>Page suivante</button>
+            <button onClick={prevPage} className="btn buttonNav">Page précédente</button>
+            <button onClick={nextPage} className="btn buttonNav" disabled={isLastPage}>Page suivante</button>
         </div>
     );
 }

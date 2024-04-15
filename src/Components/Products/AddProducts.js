@@ -41,7 +41,7 @@ function AddProduct() {
           <input type="float" placeholder="Prix du produit" onChange={e => setPrice(e.target.value)} />
         </div>
         <div>
-          <button type="submit" className='button'>Ajouter le produit</button>
+          <button type="submit" className='btn button'>Ajouter le produit</button>
         </div>
       </form>
     </div>
