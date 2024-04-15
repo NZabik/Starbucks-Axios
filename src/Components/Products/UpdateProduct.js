@@ -74,40 +74,38 @@ function UpdateProduct() {
   }
 
   return (
-    <div className="product">
-      <h1>Modifier un produit</h1>
+    <div className='container'>
+    <h1>Modifier un produit</h1>
+    <div className="row">
       {post.map((data) => {
         return (
-          <div key={data.id}>
-            <form className="products" onSubmit={(e) => {
-              e.preventDefault();
-              handleUpdate(data.id, data.name, data.price);
-            }}>
-              <div className="detailProduct">
-                <div>
-                  <label>
-                    ID:
-                    <input type="text" value={data.id} readOnly />
-                  </label>
-                </div>
-                <div>
-                  <label>
-                    Nom:
-                    <input type="text" defaultValue={data.name} onChange={(e) => data.name = e.target.value} />
-                  </label>
-                </div>
-                <div>
-                  <label>
-                    Prix:
-                    <input type="text" defaultValue={data.price} onChange={(e) => data.price = e.target.value} />
-                  </label>
-                </div>
+          <div className="col-sm-4 products" key={data.id}>
+            <div className="card">
+              <div className="card-body">
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  handleUpdate(data.id, data.name, data.price);
+                }}>
+                  <div className="form-group">
+                    <label>ID:</label>
+                    <input type="text" value={data.id} readOnly className="form-control" />
+                  </div>
+                  <div className="form-group">
+                    <label>Nom:</label>
+                    <input type="text" defaultValue={data.name} onChange={(e) => data.name = e.target.value} className="form-control" />
+                  </div>
+                  <div className="form-group">
+                    <label>Prix:</label>
+                    <input type="text" defaultValue={data.price} onChange={(e) => data.price = e.target.value} className="form-control" />
+                  </div>
+                  <button type="submit" className="btn button2 mt-3">Modifier</button>
+                </form>
               </div>
-              <button type="submit" className="btn button2">Modifier</button>
-            </form>
+            </div>
           </div>
         );
       })}
+    </div>
       <button onClick={prevPage} className="btn buttonNav" disabled={page === 1}>Page précédente</button>
       <button onClick={nextPage} className="btn buttonNav" disabled={isLastPage}>Page suivante</button>
     </div>

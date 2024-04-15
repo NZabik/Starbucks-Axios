@@ -54,7 +54,7 @@ function RemoveProducts() {
     }
 
     return (
-        <div className="container">
+        <div className='container'>
             <h1>Supprimer un produit</h1>
             <div className="row">
                 {post.map((data) => {
@@ -64,7 +64,7 @@ function RemoveProducts() {
                                 <div className="card-body">
                                     <h5 className="card-title">{"Nom: " + data.name}</h5>
                                     <p className="card-text">{"Prix: " + data.price + " €"}</p>
-                                    <button onClick={() => handleDelete(data.id)} className="btn btn-danger">Supprimer</button>
+                                    <button onClick={() => handleDelete(data.id)} className="btn button3">Supprimer</button>
                                 </div>
                             </div>
                         </div>

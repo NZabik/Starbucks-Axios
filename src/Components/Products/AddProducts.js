@@ -31,14 +31,14 @@ function AddProduct() {
   };
 
   return (
-    <div>
+    <div className='container'>
             <h1>Ajouter un produit</h1>
       <form onSubmit={handleSubmit}>
         <div className="Form">
-          <input type="text" placeholder="Nom du produit" onChange={e => setName(e.target.value)} />
+          <input className='form-control form-control-lg' type="text" placeholder="Nom du produit" onChange={e => setName(e.target.value)} />
         </div>
         <div className="Form">
-          <input type="float" placeholder="Prix du produit" onChange={e => setPrice(e.target.value)} />
+          <input className='form-control form-control-lg' type="float" placeholder="Prix du produit" onChange={e => setPrice(e.target.value)} />
         </div>
         <div>
           <button type="submit" className='btn button2'>Ajouter le produit</button>

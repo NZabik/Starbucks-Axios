@@ -35,7 +35,7 @@ function Products() {
     }
 
     return (
-        <div className="container">
+        <div className='container'>
         <h1>Products</h1>
         <div className="row">
           {post.map((data) => {

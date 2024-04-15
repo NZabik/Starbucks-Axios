@@ -1,27 +1,44 @@
+@font-face {
+    font-family: 'battlestar';
+    src: url('../../../public/BATTLEST.TTF') format('truetype');
+}
+@font-face {
+    font-family: 'sonysketch';
+    src: url('../../../public/Sony_Sketch_EF.ttf') format('truetype');
+}
 body{
+    min-height: 100vh;
     background-color: rgb(0, 0, 0);
     color: white;
-    font-family: Arial, sans-serif;
+    font-family: 'arial', sans-serif;
+    background-image: url('../../../public/BSG-fond.png');
+    background-size: fill;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+h1{
+    border-color: #A7000C;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 .button{
     background-color: rgb(0, 0, 0);
     color: white;
     padding: 10px 20px;
-    margin: 10px;
     border-radius: 20px;
 }
 .button2{
     background-color: #A7000C;
     color: white;
     padding: 10px 20px;
-    margin: 10px;
     border-radius: 20px;
 }
 .button3{
     background-color: rgb(233, 0, 0);
     color: white;
     padding: 10px 20px;
-    margin: 10px;
     border-radius: 20px;
 }
 .btn:hover {

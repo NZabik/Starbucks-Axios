@@ -17,14 +17,14 @@ function Header() {
       <nav>
       <Link to="/" className='siteTitle'>
           <img className='logo' src="/BSG.png" alt="logo" />
-          <h1 className='title'>Starbucks</h1>
+          <h2 className='title fs-1'>Starbucks</h2>
       </Link>
         
         <div className='userName'>
         {isAuthenticated && <div>Bonjour </div>}
         {isAuthenticated && <div>{username}</div>}
                 <Link to="/login">
-                <button className="btn button">{isAuthenticated ? 'Déconnexion' : 'Connexion'}</button>
+                <button className="btn button mt-3">{isAuthenticated ? 'Déconnexion' : 'Connexion'}</button>
                 </Link>
             </div>
       </nav>

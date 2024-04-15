@@ -35,18 +35,18 @@ function Login() {
     };
 
     return (
-        <div>
+        <div className='container'>
             <h1>Connexion / déconnexion</h1>
             {error && <p>{error}</p>} {/* Afficher le message d'erreur s'il existe */}
             {!isAuthenticated && <div className="Form">
-            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Nom d'utilisateur" />
+            <input className="form-control form-control-lg" type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Nom d'utilisateur" />
             </div>}
             {!isAuthenticated && <div className="Form">
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Mot de passe" />
+            <input className="form-control form-control-lg" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Mot de passe" />
             </div>}
             <div>
-            {isAuthenticated && <button className="btn button2" onClick={handleLogout}>Se déconnecter</button>}
-            {!isAuthenticated && <button className="btn button2" onClick={handleLogin}>Se connecter</button>}
+            {isAuthenticated && <button className="btn button2 mt-3" onClick={handleLogout}>Se déconnecter</button>}
+            {!isAuthenticated && <button className="btn button2 mt-3" onClick={handleLogin}>Se connecter</button>}
             </div>
         </div>
     );

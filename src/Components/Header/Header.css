@@ -1,6 +1,7 @@
 header{
-background-color: #A7000C;
+    background-color: rgba(167, 0, 12, 0.8);
 color: white;
+padding: 0 20px;
 }
 nav{
     display: flex;
