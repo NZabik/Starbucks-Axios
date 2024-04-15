@@ -1,13 +1,5 @@
 .products{
-    width: auto;
-    display: flex;
-    justify-content: space-between;
-    border-color: black;
-    border-style: solid;
-    margin-left: 300px;
-    margin-right: 300px;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 20px;
 }
 .productList{
     display: flex;
@@ -29,7 +21,7 @@
     justify-content: space-between;   
 }
 .buttonNav{
-    background-color: rgb(0, 0, 0);
+    background-color: #A7000C;
     color: rgb(255, 255, 255);
     padding: 10px 20px;
     margin: 10px;

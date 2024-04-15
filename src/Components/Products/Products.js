@@ -35,17 +35,22 @@ function Products() {
     }
 
     return (
-        <div className="product">
-            <h1>Products</h1>
-            {post.map((data) => {
-                return (
-                    <div className="productList" key={data.id}>
-                        <div>{"id: " + data.id}</div>
-                        <div>{"Nom: " + data.name}</div>
-                        <div>{"Prix: " + data.price + " €"}</div>
-                    </div>
-                );
-            })}
+        <div className="container">
+        <h1>Products</h1>
+        <div className="row">
+          {post.map((data) => {
+            return (
+              <div className="col-sm-4 products" key={data.id}>
+                <div className="card">
+                  <div className="card-body">
+                    <h5 className="card-title">{data.name}</h5>
+                    <p className="card-text">{"Prix: " + data.price + " €"}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
             <button onClick={prevPage} className="btn buttonNav">Page précédente</button>
             <button onClick={nextPage} className="btn buttonNav" disabled={isLastPage}>Page suivante</button>
         </div>

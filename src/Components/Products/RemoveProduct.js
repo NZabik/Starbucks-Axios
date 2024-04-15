@@ -15,7 +15,7 @@ function RemoveProducts() {
             navigate('/login'); // Rediriger vers la page de connexion si le token n'existe pas
         } else {
             const headers = {
-                'Authorization': 'Bearer '+ token
+                'Authorization': 'Bearer ' + token
             };
             axios.get(`http://localhost:8000/api/products?page=${page}`, { headers }).then((data) => {
                 setPost(data.data);
@@ -26,22 +26,22 @@ function RemoveProducts() {
 
     const handleDelete = (id) => {
         const headers = {
-            'Authorization': 'Bearer '+ token
+            'Authorization': 'Bearer ' + token
         };
         axios({
-          method: 'delete',
-          url: `http://localhost:8000/api/products/${id}`,
-          headers: headers,
+            method: 'delete',
+            url: `http://localhost:8000/api/products/${id}`,
+            headers: headers,
         })
-          .then(response => {
-            console.log(response);
-            alert('Produit supprimé avec succès !');
-            setPost(post.filter(product => product.id !== id)); // Mettre à jour la liste des produits
-          })
-          .catch(error => {
-            console.error('Erreur lors de la suppression du produit', error);
-          });
-      };
+            .then(response => {
+                console.log(response);
+                alert('Produit supprimé avec succès !');
+                setPost(post.filter(product => product.id !== id)); // Mettre à jour la liste des produits
+            })
+            .catch(error => {
+                console.error('Erreur lors de la suppression du produit', error);
+            });
+    };
 
     const nextPage = () => {
         setPage(page + 1);
@@ -54,20 +54,23 @@ function RemoveProducts() {
     }
 
     return (
-        <div className="product">
+        <div className="container">
             <h1>Supprimer un produit</h1>
-            {post.map((data) => {
-                return (
-                    <div className="products" key={data.id}>
-                        <div  className="detailProduct">
-                        <div>{"id: " + data.id}</div>
-                        <div>{"Nom: " + data.name}</div>
-                        <div>{"Prix: " + data.price + " €"}</div>
+            <div className="row">
+                {post.map((data) => {
+                    return (
+                        <div className="col-sm-4 products" key={data.id}>
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">{"Nom: " + data.name}</h5>
+                                    <p className="card-text">{"Prix: " + data.price + " €"}</p>
+                                    <button onClick={() => handleDelete(data.id)} className="btn btn-danger">Supprimer</button>
+                                </div>
+                            </div>
                         </div>
-                        <button onClick={() => handleDelete(data.id)} className="btn button3">Supprimer</button> {/* Ajouter un bouton de suppression pour chaque produit */}
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
             <button onClick={prevPage} className="btn buttonNav">Page précédente</button>
             <button onClick={nextPage} className="btn buttonNav" disabled={isLastPage}>Page suivante</button>
         </div>

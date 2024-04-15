@@ -36,17 +36,17 @@ function Login() {
 
     return (
         <div>
-            <h1>Connexion</h1>
+            <h1>Connexion / déconnexion</h1>
             {error && <p>{error}</p>} {/* Afficher le message d'erreur s'il existe */}
-            <div className="Form">
+            {!isAuthenticated && <div className="Form">
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Nom d'utilisateur" />
-            </div>
-            <div className="Form">
+            </div>}
+            {!isAuthenticated && <div className="Form">
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Mot de passe" />
-            </div>
+            </div>}
             <div>
-            {isAuthenticated && <button className="button3" onClick={handleLogout}>Se déconnecter</button>}
-            {!isAuthenticated && <button className="button" onClick={handleLogin}>Se connecter</button>}
+            {isAuthenticated && <button className="btn button2" onClick={handleLogout}>Se déconnecter</button>}
+            {!isAuthenticated && <button className="btn button2" onClick={handleLogin}>Se connecter</button>}
             </div>
         </div>
     );
