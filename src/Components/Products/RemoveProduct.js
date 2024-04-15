@@ -19,7 +19,7 @@ function RemoveProducts() {
             };
             axios.get(`http://localhost:8000/api/products?page=${page}`, { headers }).then((data) => {
                 setPost(data.data);
-                setIsLastPage(data.data.length < 10); // Si le nombre de produits est inférieur à 10, vous êtes à la dernière page
+                setIsLastPage(data.data.length < 6); // Si le nombre de produits est inférieur à 10, vous êtes à la dernière page
             });
         }
     }, [navigate, token, page]);

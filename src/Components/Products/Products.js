@@ -19,7 +19,7 @@ function Products() {
             };
             axios.get(`http://localhost:8000/api/products?page=${page}`, { headers }).then((data) => {
                 setPost(data.data);
-                setIsLastPage(data.data.length < 10); // Si le nombre de produits est inférieur à 10, vous êtes à la dernière page
+                setIsLastPage(data.data.length < 6); // Si le nombre de produits est inférieur à 10, vous êtes à la dernière page
             });
         }
     }, [navigate, token, page]);
@@ -42,7 +42,7 @@ function Products() {
             <h1>Products</h1>
             {post.map((data) => {
                 return (
-                    <div className="products" key={data.id}>
+                    <div className="productList" key={data.id}>
                         <div>{"id: " + data.id}</div>
                         <div>{"Nom: " + data.name}</div>
                         <div>{"Prix: " + data.price + " €"}</div>
