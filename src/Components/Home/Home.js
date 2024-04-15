@@ -44,6 +44,12 @@ function Home() {
             </div>
             <div>
             {roles.includes("ROLE_ADMIN") && (
+        <Link to="/update-product">
+                    <button className="button2">Modifier un produit</button>
+                </Link>)} {/* N'afficher le bouton Ajouter un produit que si le rôle contient 'ROLE_ADMIN' */}
+            </div>
+            <div>
+            {roles.includes("ROLE_ADMIN") && (
         <Link to="/remove-product">
                     <button className="button3">Supprimer un produit</button>
                 </Link>)} {/* N'afficher le bouton Ajouter un produit que si le rôle contient 'ROLE_ADMIN' */}
