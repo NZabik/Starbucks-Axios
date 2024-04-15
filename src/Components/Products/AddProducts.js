@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 function AddProduct() {
   const [name, setName] = useState('');
@@ -33,9 +32,6 @@ function AddProduct() {
 
   return (
     <div>
-      <Link to="/"> {/* Ajouter un lien vers la page d'accueil */}
-                <button className="buttonHome">Retour à la page d'accueil</button>
-            </Link>
             <h1>Ajouter un produit</h1>
       <form onSubmit={handleSubmit}>
         <div className="Form">

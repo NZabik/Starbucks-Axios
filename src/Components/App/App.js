@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Login from '../Login/Login';
@@ -7,15 +7,16 @@ import Home from '../Home/Home';
 import AddProduct from '../Products/AddProducts';
 import RemoveProduct from '../Products/RemoveProduct';
 import UpdateProduct from '../Products/UpdateProduct';
+import Header from '../Header/Header';
 import axios from 'axios';
 
 // Créer un contexte d'authentification
-export const AuthContext = createContext();
+export const AuthContext = React.createContext();
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [username, setUsername] = useState('');
   const [roles, setRoles] = useState('');
+  const [username, setUsername] = useState('');
   const token = localStorage.getItem('token');
   // Mettre à jour l'état d'authentification lorsque le token change
   useEffect(() => {
@@ -27,19 +28,19 @@ function App() {
     };
 
     axios.get('http://localhost:8000/api/decode', { headers }).then(data => {
-        setUsername(data.data.username);
         setRoles(data.data.roles);
+        setUsername(data.data.username);
       })
       .catch(error => {
-        console.error('Erreur lors de la récupération du nom d\'utilisateur', error);
+        console.error('Erreur lors de la récupération du role utilisateur', error);
       });
   }, [token]);
-  // const roles = JSON.parse(role);
   
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, roles, username, setUsername }}>
       <Router>
-        {isAuthenticated && <p>Bonjour {username}, vous êtes connecté.</p>}
+        <Header />
+        
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />

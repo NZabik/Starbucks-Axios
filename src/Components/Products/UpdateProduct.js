@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function UpdateProduct() {
   const [post, setPost] = useState([]);
@@ -75,9 +75,6 @@ function UpdateProduct() {
 
   return (
     <div className="product">
-      <Link to="/">
-        <button className="buttonHome">Retour à la page d'accueil</button>
-      </Link>
       <h1>Modifier un produit</h1>
       {post.map((data) => {
         return (

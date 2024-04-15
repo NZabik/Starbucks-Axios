@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Products.css';
 
 function Products() {
@@ -36,9 +36,6 @@ function Products() {
 
     return (
         <div className="product">
-            <Link to="/"> {/* Ajouter un lien vers la page d'accueil */}
-            <button className="buttonHome">Retour à la page d'accueil</button>
-            </Link>
             <h1>Products</h1>
             {post.map((data) => {
                 return (

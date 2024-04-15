@@ -1,0 +1,22 @@
+header{
+background-color: black;
+color: white;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.siteTitle{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.title{
+    margin-left: 10px;
+    color: white;
+}
+.logo{
+    max-height: 100px;
+}
