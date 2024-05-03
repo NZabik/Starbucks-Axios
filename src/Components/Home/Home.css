@@ -562,8 +562,8 @@ label {
 
 
 .hexagon-item:hover .title {
-    -webkit-animation: focus-in-contract 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    animation: focus-in-contract 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    -webkit-animation: focus-in-contract 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: focus-in-contract 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
     color: #ff0037;
 }
 

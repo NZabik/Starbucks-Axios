@@ -39,7 +39,7 @@ function Home() {
             <div className="hexagon-menu clear row">
                 {hexagonItems.map((item, index) => {
                     if (item.role && !roles.includes(item.role)) {
-                        return null; // Ne pas rendre cet élément si l'utilisateur n'a pas le bon rôle
+                        return null; // Ne pas afficher les éléments si l'utilisateur n'a pas le bon rôle
                     }
                     return (
                         <Link key={index} to={item.route} className="hexagon-item">
