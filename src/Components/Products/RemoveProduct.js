@@ -54,7 +54,7 @@ function RemoveProducts() {
     }
 
     return (
-        <div className='container'>
+        <div className='container text-center'>
             <h1>Supprimer un produit</h1>
             <div className="row">
                 {post.map((data) => {

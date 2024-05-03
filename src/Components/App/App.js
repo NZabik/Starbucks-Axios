@@ -41,8 +41,6 @@ function App() {
     <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, roles, username, setUsername }}>
       <Router>
         <Header />
-        
-        <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -51,7 +49,6 @@ function App() {
             {roles.includes("ROLE_ADMIN") && <Route path="/update-product" element={<UpdateProduct />} />} {/* N'afficher la route RemoveProduct que si le rôle contient 'ROLE_ADMIN' */}
             {roles.includes("ROLE_ADMIN") && <Route path="/remove-product" element={<RemoveProduct />} />} {/* N'afficher la route RemoveProduct que si le rôle contient 'ROLE_ADMIN' */}
           </Routes>
-        </div>
       </Router>
     </AuthContext.Provider>
   );

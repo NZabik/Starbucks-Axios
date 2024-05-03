@@ -35,8 +35,8 @@ function Products() {
     }
 
     return (
-        <div className='container'>
-        <h1>Products</h1>
+        <div className='container text-center'>
+        <h1>Produits</h1>
         <div className="row">
           {post.map((data) => {
             return (

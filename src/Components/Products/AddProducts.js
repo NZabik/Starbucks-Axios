@@ -31,7 +31,7 @@ function AddProduct() {
   };
 
   return (
-    <div className='container'>
+    <div className='container text-center'>
             <h1>Ajouter un produit</h1>
       <form onSubmit={handleSubmit}>
         <div className="Form">

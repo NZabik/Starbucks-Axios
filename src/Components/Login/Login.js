@@ -35,7 +35,7 @@ function Login() {
     };
 
     return (
-        <div className='container'>
+        <div className='container text-center'>
             <h1>Connexion / déconnexion</h1>
             {error && <p>{error}</p>} {/* Afficher le message d'erreur s'il existe */}
             {!isAuthenticated && <div className="Form">

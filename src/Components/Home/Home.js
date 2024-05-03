@@ -8,52 +8,69 @@ function Home() {
     const { isAuthenticated } = React.useContext(AuthContext);
     const [roles, setRoles] = useState('');
     const token = localStorage.getItem('token');
-    
+
     useEffect(() => {
         if (!token) return;
         const headers = {
             'Authorization': 'bearer ' + token
-          };
+        };
         axios.get('http://localhost:8000/api/decode', { headers }).then(data => {
             setRoles(data.data.roles);
-          })
-          .catch(error => {
-            console.error('Erreur lors de la récupération du role d\'utilisateur');
-          });
-      }, [token]);
+        })
+            .catch(error => {
+                console.error('Erreur lors de la récupération du role d\'utilisateur');
+            });
+    }, [token]);
 
+    const hexagonItems = [
+        { title: 'Voir les produits', route: '/products', role: 'ROLE_USER' },
+        { title: 'Ajouter un produit', route: '/add-product', role: 'ROLE_ADMIN' },
+        { title: 'Modifier un produit', route: '/update-product', role: 'ROLE_ADMIN' },
+        { title: 'Supprimer un produit', route: '/remove-product', role: 'ROLE_ADMIN' },
+    ];
 
 
     return (
         <div className='container'>
-            <h1>Bienvenue sur Starbucks</h1>
-            {!isAuthenticated && <p>Veuillez vous connecter pour voir nos produits</p>}
-            <div>
-            {roles.includes("ROLE_USER") && (
-                <Link to="/products">
-                    <button className="btn button2 mt-4">Voir les produits</button>
-                </Link>)} {/* N'afficher le bouton Voir les produits que si le rôle contient 'ROLE_USER' */}
+            <div className="text-center">
+                <h1>Bienvenue sur Starbucks</h1>
+                {!isAuthenticated && <p>Veuillez vous connecter pour voir nos produits</p>}
             </div>
-            <div>
-            {roles.includes("ROLE_ADMIN") && (
-        <Link to="/add-product">
-                    <button className="btn button2 mt-4">Ajouter un produit</button>
-                </Link>)} {/* N'afficher le bouton Ajouter un produit que si le rôle contient 'ROLE_ADMIN' */}
-            </div>
-            <div>
-            {roles.includes("ROLE_ADMIN") && (
-        <Link to="/update-product">
-                    <button className="btn button2 mt-4">Modifier un produit</button>
-                </Link>)} {/* N'afficher le bouton Ajouter un produit que si le rôle contient 'ROLE_ADMIN' */}
-            </div>
-            <div>
-            {roles.includes("ROLE_ADMIN") && (
-        <Link to="/remove-product">
-                    <button className="btn button3 mt-4">Supprimer un produit</button>
-                </Link>)} {/* N'afficher le bouton Ajouter un produit que si le rôle contient 'ROLE_ADMIN' */}
+            <div className="hexagon-menu clear row">
+                {hexagonItems.map((item, index) => {
+                    if (item.role && !roles.includes(item.role)) {
+                        return null; // Ne pas rendre cet élément si l'utilisateur n'a pas le bon rôle
+                    }
+                    return (
+                        <Link key={index} to={item.route} className="hexagon-item">
+                            <div className="hex-item">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div className="hex-item">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div className="hex-content">
+                                <div className="hex-content-inner">
+                                    <div className="title">{item.title}</div>
+                                </div>
+                                <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                                        fill="#1e2530"></path>
+                                </svg>
+                            </div>
+                        </Link>
+                    );
+                })}
             </div>
         </div>
     );
+
 }
 
 export default Home;
